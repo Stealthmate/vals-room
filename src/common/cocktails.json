@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Ocean Water",
+    "reading": "オーシャン・ウォーター",
+    "description": "海をイメージした色でオレンジの味とココナッツの香りを活かしたとても爽やかな飲み物．",
+    "abv": 14,
+    "img": "ocean-water.jpg"
+  },
+  {
+    "name": "Midori June Bug",
+    "reading": "ミドリ・ジューン・バグ",
+    "description": "メロンリキュールをベースにパイナップル，バナナ，ココナッツのお味と組み合わせ，おしゃれな飾りで鮮やかな色に仕上げたカクテル．フルーツ好きな人にぴったり！",
+    "abv": 14,
+    "img": "midori-june-bug.jpg"
+  },
+  {
+    "name": "Tequila Sunrise",
+    "reading": "テキーラサンライズ",
+    "description": "asd",
+    "abv": 12,
+    "img": "tequila-sunrise.jpg"
+  },
+  {
+    "name": "Blue Lagoon",
+    "reading": "ブルーラグーン",
+    "description": "asd",
+    "abv": 14,
+    "img": "blue-lagoon.jpg"
+  }
+]
