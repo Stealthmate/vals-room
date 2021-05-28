@@ -7,6 +7,7 @@ import TheBottlesPage from '@/pages/TheBottlesPage';
 Vue.use(VueRouter);
 
 export default new VueRouter({
+  base: '/vals-room',
   routes: [
     {
       path: '/',
