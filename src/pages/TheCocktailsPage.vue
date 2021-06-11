@@ -2,7 +2,7 @@
   <v-container>
     <v-card v-for="(item, i) in theDrinks" :key="i" class="my-5">
       <v-img
-        :src="require(`@/assets/${item.img}`)"
+        :src="getImg(item)"
         contain
         width="100vw"
       ></v-img>
@@ -18,22 +18,21 @@
 </template>
 
 <script>
-import COCKTAILS from '@/common/cocktails.json';
-const IN_STOCK = [
-  'Ocean Water',
-  'Blue Lagoon',
-  'Tequila Sunrise',
-  'Midori June Bug'
-];
+import {COCKTAILS} from '../common/data.js';
 
-  export default {
-    name: 'TheCoktailsPage',
-    computed: {
-      theDrinks() {
-        return COCKTAILS.filter(x => IN_STOCK.includes(x.name));
-      }
+export default {
+  name: 'TheCoktailsPage',
+  computed: {
+    theDrinks() {
+      return COCKTAILS;
+    }
+  },
+  methods: {
+    getImg(item) {
+      return `${process.env.BASE_URL}assets/${item.img}`;
     }
   }
+}
 </script>
 
 <style scoped>
