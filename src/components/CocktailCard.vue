@@ -2,14 +2,6 @@
   <v-card
     class="my-5" 
     max-width="500px">
-      <v-img
-        :src="getImg()"
-        contain
-        width="100vw"
-      >
-        <span class="star-overlay">
-        </span>
-      </v-img>
       <div class="d-flex flex-grow-1 align-stretch flex-column">
         <v-card-title>
           {{ cocktail.name }}

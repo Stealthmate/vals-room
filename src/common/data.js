@@ -6,7 +6,8 @@ export const COCKTAILS = [
     abv: 14,
     img: "midori-june-bug.jpg",
     rank: 4,
-    tags: [ 'Pineapple', 'Green', 'Coconut' ]
+    tags: [ 'Pineapple', 'Green', 'Coconut' ],
+    color: 'Green'
   },
   {
     name: "Blue Lagoon",
@@ -15,13 +16,15 @@ export const COCKTAILS = [
     abv: 14,
     img: "blue-lagoon.jpg",
     rank: 3,
-    tags: [ 'Blue', 'Orange' ]
+    tags: [ 'Blue', 'Orange' ],
+    color: 'Blue'
   },
   {
     name: "Piña colada",
     reading: "ピニャコラーダ",
     rank: 2,
-    tags: [ 'Milk', 'Coconut' ]
+    tags: [ 'Milk', 'Coconut', 'Pineapple' ],
+    color: 'White'
   },
   {
     name: "Ocean Water",
@@ -30,7 +33,8 @@ export const COCKTAILS = [
     abv: 14,
     img: "ocean-water.jpg",
     rank: 2,
-    tags: [ 'Blue', 'Orange', 'Coconut' ]
+    tags: [ 'Blue', 'Orange', 'Coconut', 'Original' ],
+    color: 'Blue'
   },
   {
     name: "Tequila Sunrise",
@@ -39,88 +43,138 @@ export const COCKTAILS = [
     abv: 12,
     img: "tequila-sunrise.jpg",
     rank: 2,
-    tags: [ 'Orange', 'Tequila', 'Citrus' ]
+    tags: [ 'Orange', 'Tequila', 'Citrus' ],
+    color: 'Orange'
   },
   {
     name: "Sauza Paloma",
     reading: "サウザパロマ",
     rank: 2,
-    tags: [ 'Tequila', 'Grapefruit', 'Citrus' ]
+    tags: [ 'Tequila', 'Grapefruit', 'Citrus' ],
+    color: 'Orange'
   },
   {
     name: "Martini",
     reading: "マティーニ",
     rank: 2,
-    tags: [ 'Gin', 'Strong' ]
+    tags: [ 'Gin', 'Strong' ],
+    color: 'Yellow'
   },
   {
     name: "Campari Negroni",
     reading: "カンパリネグローニ",
     rank: 4,
-    tags: [ 'Gin', 'Campari', 'Strong' ]
+    tags: [ 'Gin', 'Campari', 'Strong' ],
+    color: 'Red'
   },
   {
     name: "Starboard Light",
     reading: "スターボードライト",
     description: "",
     rank: 2,
-    tags: [ 'Mint', 'Green' ]
+    tags: [ 'Mint', 'Green' ],
+    color: 'Green'
   },
   {
     name: "Umeko",
     reading: "ウメコ",
     description: "梅酒とレモンジュースの味を程よく組み合わせた和風カクテル．",
     rank: 2,
-    tags: [ 'Umeshu', 'Citrus' ]
+    tags: [ 'Umeshu', 'Citrus' ],
+    color: 'Red'
   },
   {
     name: "Apple Brandy",
     reading: "アップルブランデー",
     rank: 2,
-    tags: [ 'Apple' ]
+    tags: [ 'Apple' ],
+    color: 'Red'
   },
   {
     name: "Deep Blue Sea Martini",
     reading: "ディープブルーシーマティーニ",
     rank: 2,
-    tags: [ 'Blue', 'Vodka' ]
+    tags: [ 'Blue', 'Vodka' ],
+    color: 'Blue'
   },
   {
     name: "Hpnotiq Margarita",
     reading: "ヒプノティックマルガリータ",
     rank: 6,
-    tags: [ 'Blue', 'Tequila' ]
+    tags: [ 'Blue', 'Tequila' ],
+    color: 'Blue'
   },
   {
     name: "El Diablo",
     reading: "エル・ディアブロ",
     description: "カシスリキュールの味を活かした少し強めのカクテル．",
     rank: 2,
-    tags: [ 'Tequila' ]
+    tags: [ 'Tequila', 'Cassis' ],
+    color: 'Red'
   },
   {
     name: "Emerald Isle",
     reading: "エメラルド・アイル",
     description: "",
     rank: 2,
-    tags: [ 'Green', 'Mint' ]
+    tags: [ 'Green', 'Mint' ],
+    color: 'Green'
   },
   {
     name: "Starbucks",
     reading: "スタバ",
     rank: 3,
-    tags: [ 'Milk', 'Dessert', 'Chocolate' ]
+    tags: [ 'Milk', 'Chocolate', 'Original' ],
+    color: 'Brown'
   },
   {
     name: "French Martini",
     reading: "フレンチマティーニ",
     rank: 2,
-    tags: [ 'Raspberry', 'Vodka' ]
+    tags: [ 'Raspberry', 'Vodka' ],
+    color: 'Red'
   },
   {
     name: "Sex In The Driveway",
     reading: "セックス・イン・ザ・ドライブウェイ (カーセックス)",
     rank: 2,
-    tags: [ 'Vodka', 'Peach', 'Blue' ]
+    tags: [ 'Vodka', 'Peach', 'Blue', 'Pineapple' ],
+    color: 'Blue'
+  },
+  {
+    name: "Tasogare",
+    reading: "タソガレ",
+    rank: 2,
+    tags: [ 'Sakura', 'Purple', 'Original' ],
+    color: 'Purple'
+  },
+  {
+    name: "Rainbow Paradise",
+    reading: "レインボーパラダイス (地球)",
+    rank: 2,
+    tags: [ 'Orange', 'Coconut' ],
+    color: 'Rainbow'
+  },
+  {
+    name: "Chocolate Martini",
+    reading: "チョコレートマティーニ",
+    rank: 2,
+    tags: [ 'Chocolate', 'Milk' ],
+  },
+  {
+    name: "Strawberry Milk",
+    reading: "ストローベリーミルク",
+    rank: 2,
+    tags: [ 'Strawberry', 'Milk' ],
+    color: 'Red'
+  },
+  {
+    name: "Lychee Delight",
+    reading: "ライチーデライト",
+    rank: 2,
+    tags: [ 'Lychee', 'Original' ],
+    color: 'Yellow'
   }
 ];
+
+export const TAGS = [...new Set([].concat.apply([], COCKTAILS.map(x => x.tags)))];
