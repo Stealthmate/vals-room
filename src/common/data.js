@@ -174,6 +174,31 @@ export const COCKTAILS = [
     rank: 2,
     tags: [ 'Lychee', 'Original' ],
     color: 'Yellow'
+  },
+  {
+    name: 'White Russian',
+    reading: 'ホワイト・ルシアン',
+    rank: 3,
+    tags: [ 'Kahlua' ],
+    color: 'Brown'
+  },
+  {
+    name: 'Pineapple Campari',
+    reading: 'パイナップルカンパリ',
+    rank: 3,
+    tags: [ 'Campari', 'Pineapple' ]
+  },
+  {
+    name: 'Old Fashioned',
+    reading: 'オールド・ファッションド',
+    rank: 3,
+    tags: [ 'Whiskey' ],
+  },
+  {
+    name: 'Sakura Gin Tonic',
+    reading: '桜ジントニック',
+    rank: 2,
+    tags: [ 'Sakura' ]
   }
 ];
 
