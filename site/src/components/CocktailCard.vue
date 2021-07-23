@@ -7,19 +7,24 @@
           {{ cocktail.name }}
           <v-spacer />
           <div class="star-holder">
-            <v-icon v-for="i in cocktail.rank" :key="i">
+            <v-icon v-for="i in cocktail.stars" :key="i">
               mdi-star
             </v-icon>
           </div>
         </v-card-title>
         <v-card-subtitle class="d-flex flex-row">
-          {{ cocktail.reading }}</v-card-subtitle
-        >
+          {{ cocktail.reading }}
+          <v-spacer />
+          {{ Math.round(cocktail.abv) }} %
+        </v-card-subtitle>
         <v-card-text class="text--primary">{{ cocktail.description }}</v-card-text>
         <div class="px-4 pb-4">
-          <v-chip v-for="(t, i) in cocktail.tags" :key="i" small class="mx-1">{{t}}</v-chip>
+          <v-chip v-for="(t, i) in cocktail.tags" :key="i" small class="mx-1">{{t.name}}</v-chip>
         </div>
       </div>
+      <v-card-actions class="justify-end">
+        <v-btn @click="$emit('order')">Order</v-btn>
+      </v-card-actions>
     </v-card>
 </template>
 
@@ -28,6 +33,11 @@ export default {
   name: 'CocktailCard',
   props: {
     cocktail: { type: Object }
+  },
+  data() {
+    return {
+      inDialog: false,
+    }
   },
   methods: {
     getImg() {

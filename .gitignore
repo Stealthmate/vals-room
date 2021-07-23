@@ -3,6 +3,8 @@ node_modules
 
 
 # local env files
+.env
+setenv
 .env.local
 .env.*.local
 
@@ -15,8 +17,14 @@ pnpm-debug.log*
 # Editor directories and files
 .idea
 .vscode
+*.code-workspace
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+__pycache__
+
+api/docker/postgres/
+api/data/

@@ -1,0 +1,56 @@
+[
+    {
+        "model": "api.ingredient",
+        "pk": 1,
+        "fields": {
+            "name": "Cointreau",
+            "content": 700,
+            "price": 2500,
+            "abv": 40
+        }
+    },
+    {
+        "model": "api.ingredient",
+        "pk": 2,
+        "fields": {
+            "name": "Blue Curacao",
+            "content": 700,
+            "price": 968,
+            "abv": 20
+        }
+    },
+    {
+        "model": "api.drinkingredient",
+        "pk": 1,
+        "fields": {
+            "ingredient": 1,
+            "amount": 45
+        }
+    },
+    {
+        "model": "api.drinkingredient",
+        "pk": 2,
+        "fields": {
+            "ingredient": 2,
+            "amount": 45
+        }
+    },
+    {
+        "model": "api.tag",
+        "pk": 1,
+        "fields": {
+            "name": "Mojito"
+        }
+    },
+    {
+        "model": "api.drink",
+        "pk": 1,
+        "fields": {
+            "name": "Cointreau Mojito",
+            "ingredients": [
+                1, 2
+            ],
+            "tags": [ 1 ]
+        }
+    }
+]
