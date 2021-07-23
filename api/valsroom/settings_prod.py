@@ -7,8 +7,8 @@ DATABASES = {
         'NAME': 'valsroom',
         'USER': environ['PGUSER'],
         'PASSWORD': environ['PGPASSWORD'],
-        'HOST': environ['PGHOST'],
-        'PORT': environ['PGPORT'],
+        'HOST': 'postgres',
+        'PORT': 5432,
     }
 }
 DEBUG = False
