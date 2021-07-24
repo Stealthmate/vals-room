@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: process.env === 'DEVELOPMENT' ? 'http://localhost:5000/' : 'https://45.32.37.56/',
+  baseURL: process.env === 'DEVELOPMENT' ? 'http://localhost:5000/' : 'https://vals-room.top/api/',
   timeout: 1000,
 });
 instance.interceptors.request.use(config => {
