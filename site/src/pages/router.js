@@ -27,7 +27,7 @@ const internal = [
 ]
 
 export default new VueRouter({
-  base: '/vals-room',
+  base: '/',
   routes: [
     {
       path: '/login',
