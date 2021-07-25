@@ -13,17 +13,30 @@ services:
     volumes:
       - ./docker/postgres/data:/var/lib/postgresql/data
 
+  site:
+    user: "${UID}:${GID}"
+    build:
+      context: site
+    command: npm run serve
+    volumes:
+      - ./site:/usr/src/app
+
   api:
-    user: "1000:1000"
     build: 
-      context: .
-      dockerfile: docker/api/Dockerfile
+      context: api
     ports:
       - "5000:5000"
     environment:
-      FLASK_ENV: development
+      PGUSER: ${PGUSER}
+      PGPASSWORD: ${PGPASSWORD}
+      PGDATABASE: ${PGDATABASE}
+      PGHOST: postgres
+      PGPORT: 5432
+      DJANGO_SETTINGS_MODULE: valsroom.settings
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
     volumes:
-      - .:/usr/src/app
+      - ./api:/usr/src/app
     command: python manage.py runserver 0.0.0.0:5000
     depends_on:
       - postgres
+      - site
