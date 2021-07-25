@@ -16,15 +16,17 @@ services:
       context: .
       dockerfile: docker/api/Dockerfile
     ports:
-      - "5000:5000"
+      - "5001:80"
     environment:
       PGUSER: ${PGUSER}
       PGPASSWORD: ${PGPASSWORD}
       PGDATABASE: ${PGDATABASE}
       PGHOST: postgres
+      PGPORT: 5432
       DJANGO_SETTINGS_MODULE: valsroom.settings_prod
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
     volumes:
       - .:/usr/src/app
-    command: python manage.py runserver 0.0.0.0:5000
+    command: gunicorn valsroom.wsgi --bind=0.0.0.0:5001 --workers=1 
     depends_on:
       - postgres
