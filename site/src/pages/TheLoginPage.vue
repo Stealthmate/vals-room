@@ -15,8 +15,8 @@ export default {
   name: 'TheLoginPage',
   data() {
     return {
-      username: 'valadmin',
-      password: 'valthecocktailmaster'
+      username: '',
+      password: ''
     }
   },
   methods: {

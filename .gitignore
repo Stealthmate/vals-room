@@ -26,5 +26,6 @@ pnpm-debug.log*
 
 __pycache__
 
-api/docker/postgres/
+docker/postgres/data
+!Dockerfile
 api/data/
