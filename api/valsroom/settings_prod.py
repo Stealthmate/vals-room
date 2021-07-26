@@ -13,4 +13,4 @@ DATABASES = {
     }
 }
 DEBUG = False
-ALLOWED_HOSTS = [ 'stealthmate.github.io' ]
+ALLOWED_HOSTS = [ 'www.vals-room.top' ]
