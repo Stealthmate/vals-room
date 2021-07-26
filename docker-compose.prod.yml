@@ -25,7 +25,7 @@ services:
       DJANGO_SETTINGS_MODULE: valsroom.settings_prod
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
     volumes:
-      - ./api:/usr/src/app
-    command: gunicorn valsroom.wsgi --bind=0.0.0.0:5001 --workers=1 
+      - ./log:/var/log/app
+    command: gunicorn valsroom.wsgi
     depends_on:
       - postgres
