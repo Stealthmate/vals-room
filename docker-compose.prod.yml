@@ -27,6 +27,6 @@ services:
     volumes:
       - ./api:/usr/src/app
       - ./log:/var/log/app
-    command: gunicorn valsroom.wsgi
+    command: gunicorn valsroom.wsgi -c valsroom/gunicorn.conf.py
     depends_on:
       - postgres
