@@ -18,7 +18,7 @@ services:
       PGUSER: ${PGUSER}
       PGPASSWORD: ${PGPASSWORD}
       PGDATABASE: ${PGDATABASE}
-      PGHOST: postgres
+      PGHOST: ${PGHOST}
       PGPORT: ${PGPORT}
       DJANGO_SETTINGS_MODULE: valsroom.settings_prod
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
