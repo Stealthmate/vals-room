@@ -20,6 +20,7 @@ services:
       PGDATABASE: ${PGDATABASE}
       PGHOST: ${PGHOST}
       PGPORT: ${PGPORT}
+      VALSROOM_PORT: ${VALSROOM_PORT}
       DJANGO_SETTINGS_MODULE: valsroom.settings_prod
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
     volumes:
