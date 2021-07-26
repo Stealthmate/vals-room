@@ -13,4 +13,4 @@ DATABASES = {
     }
 }
 DEBUG = False
-CORS_ALLOWED_ORIGINS = [ 'www.vals-room.top' ]
+CORS_ALLOWED_ORIGINS = [ 'https://www.vals-room.top' ]
