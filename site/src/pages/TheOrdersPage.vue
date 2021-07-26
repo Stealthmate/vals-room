@@ -3,6 +3,7 @@
     <v-list>
       <OrderCard v-for="(o, i) in orders" :order="o" :key="i" @complete="complete(o)" @cancel="cancel(o)"/>
     </v-list>
+    <SnackbarAlert ref="snackbar" />
   </v-container>
 </template>
 
@@ -28,24 +29,24 @@ export default {
       API.getOrders().then(response => {
         this.orders = response.data;
       }).catch(err => {
-        alert('Error!');
+        this.$refs.snackbar.error('API Error!');
         console.log(err);
       });
     },
     complete(o) {
       API.completeOrder(o.id).then(response => {
-        alert('OK');
+        this.$refs.snackbar.success('Order completed');
         this.fetch();
       }).catch(err => {
-        alert('Error!');
+        this.$refs.snackbar.error('API Error!');
       });
     },
     cancel(o) {
       API.cancelOrder(o.id).then(response => {
-        alert('OK');
+        this.$refs.snackbar.success('Order cancelled');
         this.fetch();
       }).catch(err => {
-        alert('Error!');
+        this.$refs.snackbar.error('API Error!');
       })
     }
   }

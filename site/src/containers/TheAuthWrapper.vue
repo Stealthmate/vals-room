@@ -2,6 +2,7 @@
   <div>
     <v-app-bar
       app
+      absolute
       color="primary"
       dark
       >
@@ -21,7 +22,7 @@
           <v-list-item-title><router-link :to="{name: 'TheCocktailsPage' }">カクテル</router-link></v-list-item-title>
         </v-list-item>
 
-        <v-list-item v-if="user && user.username == 'valadmin'">
+        <v-list-item v-if="user && user.is_staff">
           <v-list-item-title><router-link :to="{name: 'TheOrdersPage' }">Orders</router-link></v-list-item-title>
         </v-list-item>
       </v-list>
@@ -42,7 +43,7 @@ import {COCKTAILS, TAGS} from '@/common/data.js';
 import API from '@/common/api.js';
 
 export default {
-  name: 'TheCoktailsPage',
+  name: 'TheAuthWrapper',
   data() {
     return {
       user: null,

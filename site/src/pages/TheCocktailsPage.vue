@@ -18,6 +18,7 @@
     </v-expansion-panel>
     </v-expansion-panels>
     <CocktailCard v-for="(drink, i) in filteredDrinks" :key="i" :cocktail="drink" @order="() => order(drink)" />
+    <SnackbarAlert ref="snackbar" />
   </v-container>
 </template>
 
@@ -81,12 +82,10 @@ export default {
       return '';
     },
     order(drink) {
-      console.log('order', drink);
       API.orderItem(this.name, drink.id).then(response => {
-        alert('OK!');
+        this.$refs.snackbar.success(`Ordered a ${drink.name}!`);
       }).catch(err => {
-        alert('Error!');
-        console.log(err);
+        this.$refs.snackbar.error('Error!');
       });
     }
   }

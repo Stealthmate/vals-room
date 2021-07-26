@@ -12,7 +12,7 @@ const internal = [
   {
     path: '/',
     name: 'TheHomePage',
-    redirect: TheCocktailsPage
+    redirect: { name: 'TheCocktailsPage' }
   },
   {
     path: '/menu',

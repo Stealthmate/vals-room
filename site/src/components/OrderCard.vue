@@ -14,7 +14,7 @@
       />
     </v-card-text>
   <v-card-actions class="justify-space-between">
-    <v-btn @click="$emit('complete')">Cancel</v-btn>
+    <v-btn @click="$emit('cancel')">Cancel</v-btn>
     <v-btn @click="$emit('complete')" class="blue lighten-3">Complete</v-btn>
   </v-card-actions>
   </v-card>
