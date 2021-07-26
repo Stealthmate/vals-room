@@ -1,6 +1,7 @@
 import multiprocessing
+from os import environ
 
-bind = "0.0.0.0:5001"
+bind = f'0.0.0.0:{environ["VALSROOM_PORT"]}'
 workers = 1
 loglevel = 'info'
 accesslog='/var/log/app/access.log'
