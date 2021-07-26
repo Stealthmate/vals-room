@@ -13,4 +13,6 @@ DATABASES = {
     }
 }
 DEBUG = False
+ALLOWED_HOSTS = [ 'localhost' ]
 CORS_ALLOWED_ORIGINS = [ 'https://www.vals-room.top' ]
+CSRF_TRUSTED_ORIGINS = [ 'www.vals-room.top' ]

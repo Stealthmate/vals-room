@@ -85,4 +85,4 @@ class UserViewSet(viewsets.GenericViewSet):
     permission_classes = [IsAuthenticated]
     @action(methods=['GET'], detail=False, url_name='me', url_path='me')
     def me(self, request):
-        return Response({ 'username': request.user.username })
+        return Response({ 'username': request.user.username, 'is_staff': request.user.is_staff })
