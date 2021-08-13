@@ -1,54 +1,37 @@
 <template>
-  <v-container>
-    <v-list>
-      <OrderCard v-for="(o, i) in orders" :order="o" :key="i" @complete="complete(o)" @cancel="cancel(o)"/>
-    </v-list>
-    <SnackbarAlert ref="snackbar" />
-  </v-container>
+  <v-card flat>
+    <v-tabs v-model="tab">
+      <v-tab>Active Orders</v-tab>
+      <v-tab>Bills</v-tab>
+    </v-tabs>
+
+    <v-tabs-items v-model="tab">
+      <v-tab-item :key="1" :value="0">
+        <TheActiveOrdersContainer />
+      </v-tab-item>
+      <v-tab-item :key="2" :value="1">
+        <TheBillContainer />
+      </v-tab-item>
+    </v-tabs-items>
+  </v-card>
 </template>
 
 <script>
+
 import API from '@/common/api.js';
-import OrderCard from '@/components/OrderCard';
+
+import TheActiveOrdersContainer from "@/containers/TheActiveOrdersContainer";
+import TheBillContainer from "@/containers/TheBillContainer";
+
+const hasTagId = (xs, tid) => xs.some((x) => x.id === tid);
 
 export default {
-  name: 'TheOrdersPage',
-  components: {
-    OrderCard
-  },
+  name: "TheCoktailsPage",
+  components: { TheActiveOrdersContainer, TheBillContainer },
   data() {
     return {
-      orders: []
-    }
-  },
-  created() {
-    this.fetch();
-  },
-  methods: {
-    fetch() {
-      API.getOrders().then(response => {
-        this.orders = response.data;
-      }).catch(err => {
-        this.$refs.snackbar.error('API Error!');
-        console.log(err);
-      });
-    },
-    complete(o) {
-      API.completeOrder(o.id).then(response => {
-        this.$refs.snackbar.success('Order completed');
-        this.fetch();
-      }).catch(err => {
-        this.$refs.snackbar.error('API Error!');
-      });
-    },
-    cancel(o) {
-      API.cancelOrder(o.id).then(response => {
-        this.$refs.snackbar.success('Order cancelled');
-        this.fetch();
-      }).catch(err => {
-        this.$refs.snackbar.error('API Error!');
-      })
+      tab: 0
     }
   }
-}
+};
 </script>

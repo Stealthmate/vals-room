@@ -1,19 +1,14 @@
 
-import math
-
 import yaml
 
 from django.db import transaction
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
-from api.models.drinks import Drink, DrinkIngredient, Ingredient
+from api.models.users import ValsRoomUserInvitation
 
 class Command(BaseCommand):
-    help = 'Load YAML drink list into DB'
-
-    def add_arguments(self, parser):
-        parser.add_argument('FILE', type=str, help='Path to YAML file containing drinks')
+    help = 'Generate user invitation'
 
     def handle(self, *args, **kwargs):
         f = kwargs['FILE']
@@ -45,8 +40,5 @@ class Command(BaseCommand):
                 d = Drink.objects.create(
                     name=item['name'],
                     japanese_name=item['name'], # TODO
-                    stars=0
                 )
                 d.ingredients.add(*dings)
-                d.stars = int(math.ceil((d.price + 50) / 100))
-                d.save()

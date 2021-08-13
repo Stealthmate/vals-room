@@ -5,7 +5,7 @@ from django.db import transaction
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 
-from api.models import DrinkIngredient, Ingredient
+from api.models.drinks import DrinkIngredient, Ingredient
 
 class Command(BaseCommand):
     help = 'Load YAML ingredient list into DB'

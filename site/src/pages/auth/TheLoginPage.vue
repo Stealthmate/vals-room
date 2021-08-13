@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <router-link :to="{name: 'TheAuthPage'}">Back</router-link>
     <v-form>
       <v-text-field v-model="username" label="Username" />
       <v-text-field v-model="password" label="Password" type="password" @keyup.enter="login" />
@@ -21,6 +22,10 @@ export default {
       password: '',
     }
   },
+  computed: {
+    theLoginPage() { return { name: 'TheLoginPage' }; },
+    theRegisterPage() { return { name: 'TheRegisterPage' }; }
+  },
   methods: {
     login() {
       if(this.username.length === 0 || this.password.length === 0) {
@@ -29,7 +34,7 @@ export default {
       }
       API.auth.login(this.username, this.password).then(response => {
         window.localStorage.setItem('token', response.data.access);
-        this.$router.push({ name: 'TheCocktailsPage' })
+        this.$router.push({ name: 'TheHomePage' })
       }).catch(_ => {
         this.$refs.snackbar.error('Error!');
       });

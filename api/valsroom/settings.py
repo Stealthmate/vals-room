@@ -24,7 +24,7 @@ SECRET_KEY = 'DEBUG'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-CORS_ORIGIN_ALLOW_ALL = DEBUG
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition

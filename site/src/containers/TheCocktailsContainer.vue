@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <v-text-field label="Name" v-model="name" />
     <v-expansion-panels>
     <v-expansion-panel>
       <v-expansion-panel-header>
@@ -29,11 +28,13 @@ import API from '@/common/api.js';
 const hasTagId = (xs, tid) => xs.some(x => x.id === tid);
 
 export default {
-  name: 'TheCoktailsPage',
+  name: 'TheCoktailsContainer',
   components: { CocktailCard },
+  props: {
+    drinks: { type: Array }
+  },
   data() {
     return {
-      drinks: [],
       tags: [],
       selectedTags: [],
     }
@@ -57,14 +58,8 @@ export default {
       }
     },
   },
-  created() {
-    this.fetch();
-  },
   methods: {
     fetch() {
-      API.getDrinks().then(response => {
-        this.drinks = response.data;
-      });
       API.getTags().then(response => {
         this.tags = response.data;
       });
@@ -77,13 +72,13 @@ export default {
       else this.selectedTags.push(t);
     },
     tagClass(t) {
-      console.log(hasTagId(this.selectedTags, t.id))
       if(hasTagId(this.selectedTags, t.id)) return 'selected';
       return '';
     },
     order(drink) {
-      API.orderItem(this.name, drink.id).then(response => {
+      API.orders.place(drink.id).then(response => {
         this.$refs.snackbar.success(`Ordered a ${drink.name}!`);
+        this.$emit('order');
       }).catch(err => {
         this.$refs.snackbar.error('Error!');
       });

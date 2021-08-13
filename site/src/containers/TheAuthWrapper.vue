@@ -19,11 +19,17 @@
         dense
       >
         <v-list-item>
-          <v-list-item-title><router-link :to="{name: 'TheCocktailsPage' }">カクテル</router-link></v-list-item-title>
+          <v-list-item-title><router-link :to="{name: 'TheHomePage' }">カクテル</router-link></v-list-item-title>
         </v-list-item>
 
         <v-list-item v-if="user && user.is_staff">
           <v-list-item-title><router-link :to="{name: 'TheOrdersPage' }">Orders</router-link></v-list-item-title>
+        </v-list-item>
+        <v-list-item v-if="user && user.is_staff">
+          <v-list-item-title><router-link :to="{name: 'TheUserInvitationsPage' }">Invitations</router-link></v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-title><v-btn @click="logout">ログアウト</v-btn></v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -31,7 +37,6 @@
     <v-main>
       <div>
         <router-view v-if="isLoggedIn" :user="user" />
-        <span v-else> WTF </span>
       </div>
     </v-main>
   </div>
@@ -41,6 +46,7 @@
 import {COCKTAILS, TAGS} from '@/common/data.js';
 
 import API from '@/common/api.js';
+import {isAuthenticated} from '@/common/utils.js';
 
 export default {
   name: 'TheAuthWrapper',
@@ -59,14 +65,21 @@ export default {
   created() {
     this.getMe();
   },
+  beforeUpdate() {
+    if(!isAuthenticated()) this.$router.push({ name: 'TheAuthPage' });
+  },
   methods: {
     getMe() {
       API.auth.getMe().then(response => {
         this.user = response.data;
       }).catch(err => {
         console.log(err);
-        this.$router.push({ name: 'TheLoginPage' });
-      })
+        this.$router.push({ name: 'TheAuthPage' });
+      });
+    },
+    logout() {
+      window.localStorage.removeItem('token');
+      this.$router.push({ name: 'TheLoginPage' });
     }
   }
 }
