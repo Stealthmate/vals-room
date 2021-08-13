@@ -10,6 +10,7 @@ services:
     volumes:
       - ./docker/postgres/data:/var/lib/postgresql/data
     network_mode: host
+    command: -p ${PGPORT}
 
   api:
     build: 
